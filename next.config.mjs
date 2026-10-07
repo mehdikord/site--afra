@@ -2,10 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com", pathname: "/**" },
-    ],
-    formats: ["image/avif", "image/webp"],
+    // Serve /public images directly — avoids /_next/image failures on
+    // restricted hosts and reverse-proxy setups (common production break).
+    unoptimized: true,
   },
 };
 

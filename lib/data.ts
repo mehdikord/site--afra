@@ -35,8 +35,8 @@ export interface Property {
   postedDaysAgo: number;
 }
 
-const u = (id: string, w = 1400) =>
-  `https://images.unsplash.com/${id}?q=80&w=${w}&auto=format&fit=crop`;
+/** Local assets under /public/images — avoids Unsplash/optimizer failures on restricted servers */
+const u = (id: string, _w = 1400) => `/images/${id}.jpg`;
 
 export const HERO_IMAGES = {
   main: u("photo-1613490493576-7fde63acd811", 2000),

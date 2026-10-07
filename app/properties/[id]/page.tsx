@@ -190,7 +190,7 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
           <div className="glass rounded-[24px] p-6">
             <div className="flex items-center gap-3">
               <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-full ring-2 ring-afra-emerald/60">
-                <Image src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" alt="مشاور فایل" fill sizes="56px" className="object-cover" loading="lazy" />
+                <Image src="/images/photo-1573496359142-b8d87734a5a2.jpg" alt="مشاور فایل" fill sizes="56px" className="object-cover" loading="lazy" />
               </span>
               <div>
                 <p className="text-sm font-bold">کارشناس این فایل</p>
