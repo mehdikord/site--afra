@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #0b0a14;
+  --ink: #19182d;
+  --panel: #14132a;
+  --magenta: #e900d6;
+  --royal: #2145ff;
+  --emerald: #00e878;
+  --cyan: #168eea;
+  --gold: #ffd42b;
+  --ember: #ff8a28;
+  --flame: #ff3026;
+  --mist: #a9adbb;
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Vazirmatn", Tahoma, system-ui, sans-serif;
+  background: var(--void);
+  color: #fff;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+html.light body {
+  background: #f6f5f1;
+  color: #19182d;
+}
+
+::selection {
+  background: linear-gradient(135deg, #e900d6, #2145ff);
+  color: #fff;
+}
+
+/* ---------- scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #e900d6, #2145ff);
+  border-radius: 99px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+html.light ::-webkit-scrollbar-thumb {
+  border-color: #f6f5f1;
+}
+
+/* ---------- helpers ---------- */
+.font-display {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.glass {
+  background: rgba(20, 19, 42, 0.55);
+  backdrop-filter: blur(22px) saturate(1.4);
+  -webkit-backdrop-filter: blur(22px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+html.light .glass {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(25, 24, 45, 0.08);
+}
+
+.glass-strong {
+  background: rgba(20, 19, 42, 0.82);
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+html.light .glass-strong {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(25, 24, 45, 0.09);
+}
+
+.text-grad-magenta {
+  background: linear-gradient(120deg, #ff7ae9 0%, #e900d6 40%, #7aa2ff 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-grad-emerald {
+  background: linear-gradient(120deg, #5cffb1 0%, #00e878 45%, #5cc3ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-grad-sunset {
+  background: linear-gradient(120deg, #ffe27a 0%, #ff8a28 55%, #ff5a4e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-surface {
+  background: linear-gradient(160deg, rgba(30, 29, 56, 0.9), rgba(15, 14, 30, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+html.light .card-surface {
+  background: #ffffff;
+  border: 1px solid rgba(25, 24, 45, 0.08);
+  box-shadow: 0 24px 50px -28px rgba(25, 24, 45, 0.25);
+}
+
+.hairline {
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+html.light .hairline {
+  border-color: rgba(25, 24, 45, 0.09);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+html.light .grid-bg {
+  background-image:
+    linear-gradient(rgba(25, 24, 45, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 24, 45, 0.06) 1px, transparent 1px);
+}
+
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.btn-sheen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.35) 50%, transparent 65%);
+  transform: translateX(-110%);
+  transition: transform 0.7s ease;
+}
+[dir="rtl"] .btn-sheen::before {
+  transform: translateX(110%);
+}
+.btn-sheen:hover::before {
+  transform: translateX(110%);
+}
+[dir="rtl"] .btn-sheen:hover::before {
+  transform: translateX(-110%);
+}
+
+.mask-fade-x {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.mask-fade-b {
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+}
+
+/* range inputs */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #e900d6 var(--fill, 50%), rgba(255, 255, 255, 0.12) var(--fill, 50%));
+  outline: none;
+  cursor: pointer;
+}
+html.light input[type="range"] {
+  background: linear-gradient(90deg, #e900d6 var(--fill, 50%), rgba(25, 24, 45, 0.14) var(--fill, 50%));
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #e900d6;
+  box-shadow: 0 0 16px rgba(233, 0, 214, 0.6);
+  cursor: grab;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #e900d6;
+  box-shadow: 0 0 16px rgba(233, 0, 214, 0.6);
+  cursor: grab;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* focus visibility */
+:focus-visible {
+  outline: 2px solid #e900d6;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* hide number spinners */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
